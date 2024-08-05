@@ -25,6 +25,9 @@
 #include "SpellMgr.h"
 #include "UnitAI.h"
 
+// CUSTOM SCRIPTS
+#include "ServerCustomization/ScriptsRegistry.h"
+
 namespace
 {
     template<typename T>
@@ -102,6 +105,9 @@ void ScriptMgr::Initialize()
     ScriptRegistry<UnitScript>::InitEnabledHooksIfNeeded(UNITHOOK_END);
     ScriptRegistry<WorldObjectScript>::InitEnabledHooksIfNeeded(WORLDOBJECTHOOK_END);
     ScriptRegistry<WorldScript>::InitEnabledHooksIfNeeded(WORLDHOOK_END);
+
+    // CUSTOM SCRIPTS
+    JulMan::RegisterCustomScripts();
 }
 
 void ScriptMgr::Unload()
